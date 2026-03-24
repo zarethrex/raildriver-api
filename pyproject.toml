@@ -1,0 +1,23 @@
+[project]
+name = "raildriver-api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [{ name = "Kristian Zarębski", email = "krizar312@gmail.com" }]
+requires-python = ">=3.13"
+dependencies = [
+    "loguru>=0.7.3",
+    "pefile>=2024.8.26",
+    "psutil>=7.2.2",
+    "pydantic>=2.12.5",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.0,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = ["basedpyright>=1.38.3", "ruff>=0.15.7", "ty>=0.0.24"]
+
+[tool.basedpyright]
+reportAny = false

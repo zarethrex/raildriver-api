@@ -338,7 +338,7 @@ dev = [
 requires-dist = [
     { name = "loguru", specifier = ">=0.7.3" },
     { name = "pefile", specifier = ">=2024.8.26" },
-    { name = "psutil", specifier = ">=7.2.2" },
+    { name = "psutil", specifier = ">=6.0" },
     { name = "pydantic", specifier = ">=2.12.5" },
 ]
 

@@ -1,16 +1,28 @@
 [project]
 name = "raildriver-api"
 version = "0.1.0"
-description = "Add your description here"
+description = "API for the RailDriver DLL allowing interaction with Train Simulator Classic"
 readme = "README.md"
 authors = [{ name = "Kristian Zarębski", email = "krizar312@gmail.com" }]
+license = "MIT"
 requires-python = ">=3.13"
 dependencies = [
     "loguru>=0.7.3",
     "pefile>=2024.8.26",
-    "psutil>=7.2.2",
+    "psutil>=6.0",
     "pydantic>=2.12.5",
 ]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Games/Entertainment :: Simulation",
+    "Typing :: Typed",
+]
+keywords = ["raildriver", "train-simulator", "tsclassic"]
 
 [build-system]
 requires = ["uv_build>=0.9.0,<0.10.0"]

@@ -1,6 +1,7 @@
 from typing import Literal
 import pytest
 import pathlib
+import winreg
 
 from raildriver_api.file_system import (
     check_raildriver_running,

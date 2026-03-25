@@ -1,0 +1,38 @@
+name: Test RailDriver API
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+permissions:
+    contents: read
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    build_test:
+        name: Run Tests (Python ${{ matrix.python-version }})
+        runs-on: windows-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                python-version:
+                    - "3.11"
+                    - "3.12"
+                    - "3.13"
+                    - "3.14"
+        steps:
+            - name: Get Codebase
+              uses: actions/checkout@v6
+            - name: Install UV
+              uses: astral-sh/setup-uv@v7
+            - name: Run Tests
+              run: |
+                  uv sync --all-groups --python ${{ matrix.python-version }}
+                  uv run pytest --python ${{ matrix.python-version }} \
+                  -x -c /dev/null -p no:warnings -v \
+                  -o cache_dir=${GITHUB_WORKSPACE}/.pytest-cache

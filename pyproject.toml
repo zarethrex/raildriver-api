@@ -17,7 +17,23 @@ requires = ["uv_build>=0.9.0,<0.10.0"]
 build-backend = "uv_build"
 
 [dependency-groups]
-dev = ["basedpyright>=1.38.3", "ruff>=0.15.7", "ty>=0.0.24"]
+dev = [
+    "basedpyright>=1.38.4",
+    "faker>=40.11.1",
+    "pytest>=9.0.2",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.15.7",
+    "ty>=0.0.25",
+]
 
 [tool.basedpyright]
 reportAny = false
+
+[tool.pytest.ini_options]
+markers = [
+    "file_system: tests for file system functions",
+    "unit: unit tests",
+    "raildriver: tests for raildriver class",
+]
+addopts = "--cov=raildriver_api --cov-report=term --cov-report=xml"
+testpaths = ["tests"]

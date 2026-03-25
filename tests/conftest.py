@@ -1,5 +1,4 @@
-from typing import Any
-from jedi.inference.gradual.typing import Callable
+from typing import Any, Callable
 import tempfile
 from collections.abc import Generator
 import dataclasses

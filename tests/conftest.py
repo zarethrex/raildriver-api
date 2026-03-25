@@ -92,6 +92,7 @@ def mock_winreg(monkeypatch) -> Generator[str]:
         _temp_dir.joinpath("plugins", "RailDriver64.dll").touch()
         _temp_dir.joinpath("plugins", "RailDriver.dll").touch()
 
+        monkeypatch.setattr(winreg, "HKEY_LOCAL_MACHINE", "")
         monkeypatch.setattr(winreg, "OpenKey", lambda *_, **__: "")
         monkeypatch.setattr(winreg, "QueryValueEx", lambda *_, **__: (tempd, None))
 
